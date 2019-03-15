@@ -9,7 +9,10 @@ var gestalttests = []struct {
 	separator []rune
 	expected  string
 }{
-	{"Odd len", []rune("abcdefg"), 5, []rune("-"), "ab-fg"},
+	{"Odd len odd separator", []rune("abcdefghijk"), 7, []rune("-"), "abc-ijk"},
+	{"Odd len even separator", []rune("abcdefghijk"), 7, []rune("--"), "ab--jk"},
+	{"Even len odd separator", []rune("abcdefghijk"), 8, []rune("-"), "abc-ijk"},
+	{"Even len even separator", []rune("abcdefghijk"), 8, []rune("--"), "abc--ijk"},
 }
 
 func TestGestalt(t *testing.T) {
