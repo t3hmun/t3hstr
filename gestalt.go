@@ -13,6 +13,8 @@ func Gestalt(target []rune, maxlen int, separator []rune) string {
 
 	seplen := len(separator)
 	contentlen := (maxlen - seplen) / 2
-	gestalt := fmt.Sprintf("%s%s%s", string(target[:contentlen-1]), string(separator), string(target[contentlen+seplen:]))
+	stopBefore := contentlen
+	startAt := tlen - (contentlen)
+	gestalt := fmt.Sprintf("%s%s%s", string(target[:stopBefore]), string(separator), string(target[startAt:]))
 	return gestalt
 }
